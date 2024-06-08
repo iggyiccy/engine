@@ -17,10 +17,20 @@ const main = async () => {
       ? `./dist/prisma/schema.prisma`
       : `./src/prisma/schema.prisma`;
 
+  // if (hasWalletsTable) {
+  //   execSync(`yarn prisma migrate reset --force --schema ${schema}`, {
+  //     stdio: "inherit",
+  //   });
+  // } else {
+  //   execSync(`yarn prisma migrate deploy --schema ${schema}`, {
+  //     stdio: "inherit",
+  //   });
+  // }
+
   if (hasWalletsTable) {
-    execSync(`yarn prisma migrate reset --force --schema ${schema}`, {
-      stdio: "inherit",
-    });
+  execSync(`yarn prisma migrate deploy --schema ${schema}`, {
+    stdio: "inherit",
+  });
   } else {
     execSync(`yarn prisma migrate deploy --schema ${schema}`, {
       stdio: "inherit",
